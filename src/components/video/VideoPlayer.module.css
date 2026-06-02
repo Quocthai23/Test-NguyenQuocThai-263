@@ -1,0 +1,168 @@
+.container {
+  width: 100%;
+  height: 100%; /* For full height of the feed container */
+  scroll-snap-align: start;
+  position: relative;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* On PC, constrain aspect ratio to 9:16 */
+@media (min-width: 768px) {
+  .videoWrapper {
+    height: 100%;
+    aspect-ratio: 9 / 16;
+    position: relative;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .videoWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  padding-bottom: 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none; /* Let clicks pass through to video */
+}
+
+.info {
+  flex: 1;
+  color: #fff;
+  padding-right: 16px;
+  pointer-events: auto;
+}
+
+.author {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.description {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.actionButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  gap: 4px;
+  padding: 0;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.actionButton:hover .iconWrapper {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.actionButton:active .iconWrapper {
+  transform: scale(0.9);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.liked .iconWrapper {
+  color: #f04438; /* var(--color-red-500) from themeglobal.json */
+  animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.liked .icon {
+  fill: currentColor;
+}
+
+.actionText {
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.playPauseIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.playPauseIndicator.show {
+  opacity: 1;
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
+  20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -1,0 +1,21 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--background, #000);
+}
+
+.main {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* PC Layout */
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+}

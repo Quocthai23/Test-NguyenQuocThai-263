@@ -1,0 +1,262 @@
+Dưới đây là toàn bộ hệ thống Design System (Tokens) được trích xuất từ các file CSS của bạn và chuyển đổi thành một file JSON hoàn chỉnh, cấu trúc rõ ràng để bạn có thể sử dụng toàn cục (Global) cho dự án:
+
+```json
+{
+  "theme": {
+    "spacing": {
+      "base": "4px",
+      "xxs": "scale-1",
+      "xs": "scale-2",
+      "sm": "scale-3",
+      "md": "scale-4",
+      "lg": "scale-5",
+      "xl": "scale-6",
+      "xxl": "scale-8",
+      "3xl": "scale-10",
+      "4xl": "scale-12",
+      "5xl": "scale-16",
+      "6xl": "scale-20",
+      "7xl": "scale-24",
+      "8xl": "scale-32"
+    },
+    "fontWeights": {
+      "thin": 100,
+      "extralight": 200,
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800,
+      "black": 900
+    },
+    "fontSizes": {
+      "2xs": "10px",
+      "xs": "12px",
+      "sm": "14px",
+      "base": "15px",
+      "md": "16px",
+      "lg": "18px",
+      "xl": "20px",
+      "2xl": "24px",
+      "3xl": "32px",
+      "4xl": "40px",
+      "5xl": "48px",
+      "6xl": "56px",
+      "7xl": "64px",
+      "8xl": "72px",
+      "9xl": "80px",
+      "10xl": "96px"
+    },
+    "lineHeights": {
+      "2xs": "14px",
+      "xs": "16px",
+      "sm": "20px",
+      "md": "24px",
+      "lg": "28px",
+      "xl": "32px",
+      "2xl": "36px",
+      "3xl": "40px",
+      "4xl": "44px",
+      "5xl": "48px",
+      "6xl": "56px",
+      "7xl": "64px",
+      "8xl": "72px",
+      "9xl": "80px",
+      "10xl": "88px"
+    },
+    "colors": {
+      "base": {
+        "white": "#ffffff",
+        "overlay-white": "rgba(255, 255, 255, 0.4)",
+        "overlay-black": "rgba(0, 0, 0, 0.4)"
+      },
+      "primary": {
+        "50": "#e6eeff",
+        "100": "#b0cbff",
+        "200": "#8ab2ff",
+        "300": "#558fff",
+        "400": "#3479ff",
+        "500": "#0158ff",
+        "600": "#0150e8",
+        "700": "#013eb5",
+        "800": "#01308c",
+        "900": "#00256b",
+        "1000": "#011336"
+      },
+      "green": {
+        "50": "#e7f8f0",
+        "100": "#b6e9d1",
+        "200": "#92deba",
+        "300": "#60cf9b",
+        "400": "#41c588",
+        "500": "#12b76a",
+        "600": "#10a760",
+        "700": "#0d824b",
+        "800": "#0a653a",
+        "900": "#084d2d"
+      },
+      "red": {
+        "50": "#feeceb",
+        "100": "#fac5c1",
+        "200": "#f8a9a3",
+        "300": "#f5827a",
+        "400": "#f36960",
+        "500": "#f04438",
+        "600": "#da3e33",
+        "700": "#aa3028",
+        "800": "#84251f",
+        "900": "#651d18"
+      },
+      "yellow": {
+        "50": "#fdf7e6",
+        "100": "#f8e7b2",
+        "200": "#f5dc8d",
+        "300": "#f1cc5a",
+        "400": "#eec239",
+        "500": "#eab308",
+        "600": "#d5a307",
+        "700": "#a67f06",
+        "800": "#816204",
+        "900": "#624b03"
+      },
+      "blue": {
+        "50": "#e9effd",
+        "100": "#bbcff9",
+        "200": "#9bb7f6",
+        "300": "#6d96f2",
+        "400": "#5182ef",
+        "500": "#2563eb",
+        "600": "#225ad6",
+        "700": "#1a46a7",
+        "800": "#143681",
+        "900": "#102a63"
+      },
+      "neutral": {
+        "00": "#ffffff",
+        "50": "#f9fafb",
+        "100": "#f3f4f6",
+        "200": "#e5e7eb",
+        "300": "#d1d5db",
+        "400": "#9ca3af",
+        "500": "#6b7280",
+        "600": "#4b5563",
+        "700": "#374151",
+        "800": "#262626",
+        "900": "#171717",
+        "1000": "#030712"
+      }
+    },
+    "semanticTokens": {
+      "light": {
+        "app": {
+          "bg": "var(--color-neutral-00)",
+          "surface": "var(--color-neutral-00)",
+          "surface-muted": "var(--color-neutral-100)",
+          "text": "var(--color-text-neutral-primary)",
+          "text-muted": "var(--color-text-neutral-secondary)",
+          "text-tertiary": "var(--color-text-neutral-tertiary)",
+          "border": "var(--color-neutral-200)",
+          "input": "var(--color-neutral-200)",
+          "ring": "var(--color-primary-300)"
+        },
+        "text": {
+          "brand-primary": "var(--color-primary-500)",
+          "brand-secondary": "var(--color-primary-400)",
+          "brand-disabled": "var(--color-primary-200)",
+          "neutral-primary": "var(--color-neutral-900)",
+          "neutral-secondary": "var(--color-neutral-600)",
+          "neutral-disabled": "var(--color-neutral-400)",
+          "neutral-tertiary": "var(--color-neutral-400)",
+          "neutral-inverse": "var(--color-white)",
+          "success-default": "var(--color-green-500)",
+          "success-secondary": "var(--color-green-400)",
+          "success-disabled": "var(--color-green-200)",
+          "information-link": "var(--color-blue-500)",
+          "information-link-hover": "var(--color-blue-400)",
+          "error-default": "var(--color-red-500)",
+          "error-secondary": "var(--color-red-400)",
+          "error-disabled": "var(--color-red-200)",
+          "warning-default": "var(--color-yellow-500)",
+          "warning-secondary": "var(--color-yellow-400)",
+          "warning-disabled": "var(--color-yellow-200)"
+        },
+        "surface": {
+          "bg": "#f9fbfa",
+          "default": "#f3f7f4",
+          "subtle": "#262626",
+          "secondary": "#e1ece5",
+          "elevated": "#d8e8de",
+          "brand-default": "var(--color-primary-500)",
+          "brand-hover": "var(--color-primary-700)",
+          "brand-secondary-hover": "rgba(0, 111, 55, 0.15)",
+          "brand-disabled": "var(--color-primary-200)",
+          "brand-focus": "var(--color-primary-300)"
+        }
+      },
+      "dark": {
+        "app": {
+          "bg": "var(--color-surface-bg)",
+          "surface": "var(--color-surface-default)",
+          "surface-muted": "var(--color-surface-subtle)",
+          "text": "var(--color-text-neutral-primary)",
+          "text-muted": "var(--color-text-neutral-secondary)",
+          "text-tertiary": "var(--color-text-neutral-tertiary)",
+          "border": "var(--color-border-subtle)",
+          "input": "var(--color-border-subtle)",
+          "ring": "var(--color-border-focus)"
+        },
+        "text": {
+          "brand-primary": "var(--color-primary-500)",
+          "brand-secondary": "var(--color-primary-100)",
+          "brand-disabled": "var(--color-primary-800)",
+          "neutral-primary": "var(--color-neutral-50)",
+          "neutral-secondary": "var(--color-neutral-300)",
+          "neutral-disabled": "var(--color-neutral-800)",
+          "neutral-tertiary": "var(--color-neutral-600)",
+          "neutral-inverse": "var(--color-neutral-900)"
+        },
+        "surface": {
+          "bg": "#060b09",
+          "default": "#0c130f",
+          "subtle": "#262626",
+          "secondary": "#1d2621",
+          "elevated": "#232c26",
+          "brand-primary": "var(--color-primary-500)",
+          "brand-secondary": "var(--color-primary-900)"
+        }
+      }
+    },
+    "typography": {
+      "display": {
+        "3xl": { "fontSize": "32px", "lineHeight": "40px", "fontWeight": "bold" },
+        "2xl": { "fontSize": "24px", "lineHeight": "44px", "fontWeight": "bold" },
+        "xl": { "fontSize": "20px", "lineHeight": "40px", "fontWeight": "bold" },
+        "lg": { "fontSize": "18px", "lineHeight": "36px", "fontWeight": "semibold" },
+        "sm": { "fontSize": "14px", "lineHeight": "40px", "fontWeight": "semibold" }
+      },
+      "headings": {
+        "h1": { "fontSize": "24px", "lineHeight": "36px" },
+        "h2": { "fontSize": "20px", "lineHeight": "32px" },
+        "h3": { "fontSize": "18px", "lineHeight": "28px" },
+        "h4": { "fontSize": "16px", "lineHeight": "24px" }
+      },
+      "body": {
+        "large": { "fontSize": "15px", "lineHeight": "24px" },
+        "medium": { "fontSize": "15px", "lineHeight": "24px" },
+        "small": { "fontSize": "14px", "lineHeight": "20px" }
+      },
+      "button": {
+        "large": { "fontSize": "15px", "lineHeight": "24px" },
+        "medium": { "fontSize": "16px", "lineHeight": "24px" },
+        "small": { "fontSize": "14px", "lineHeight": "20px" }
+      },
+      "caption": {
+        "fontSize": "12px",
+        "lineHeight": "16px"
+      }
+    }
+  }
+}
+
+```
