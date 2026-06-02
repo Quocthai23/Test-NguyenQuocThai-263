@@ -1,24 +1,24 @@
 .container {
   width: 100%;
-  height: 100%; /* For full height of the feed container */
+  height: 100%;
   scroll-snap-align: start;
   position: relative;
-  background-color: #000;
+  background-color: var(--color-neutral-1000);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* On PC, constrain aspect ratio to 9:16 */
 @media (min-width: 768px) {
   .videoWrapper {
     height: 100%;
     aspect-ratio: 9 / 16;
     position: relative;
-    background: #111;
+    background: var(--color-neutral-900);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   }
 }
 
@@ -42,92 +42,81 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px;
-  padding-bottom: 24px;
+  padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-xl);
   background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  pointer-events: none; /* Let clicks pass through to video */
+  pointer-events: none;
 }
 
 .info {
   flex: 1;
-  color: #fff;
-  padding-right: 16px;
+  color: var(--color-base-white);
+  padding-right: var(--spacing-lg);
   pointer-events: auto;
 }
 
 .author {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
+  font-size: var(--typography-headings-h3-fontSize);
+  font-weight: var(--typography-headings-h3-fontWeight, var(--font-weight-bold));
+  line-height: var(--typography-headings-h3-lineHeight);
+  margin: 0 0 var(--spacing-xs) 0;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .description {
-  font-size: 14px;
+  font-size: var(--typography-body-medium-fontSize);
+  line-height: var(--typography-body-medium-lineHeight);
   margin: 0;
-  line-height: 1.4;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-lg);
   pointer-events: auto;
 }
 
-.actionButton {
+.actionItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  gap: 4px;
-  padding: 0;
+  gap: var(--spacing-xs);
 }
 
-.iconWrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: rgba(255,255,255,0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s, background-color 0.2s;
+.actionButton {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background-color: var(--color-base-overlay-white) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  transition: transform 0.2s, background-color 0.2s !important;
 }
 
-.actionButton:hover .iconWrapper {
-  background-color: rgba(255,255,255,0.2);
+.actionButton:hover {
+  background-color: rgba(255,255,255,0.3) !important;
 }
 
-.actionButton:active .iconWrapper {
-  transform: scale(0.9);
+.actionButton:active {
+  transform: scale(0.9) !important;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
-}
-
-.liked .iconWrapper {
-  color: #f04438; /* var(--color-red-500) from themeglobal.json */
+.liked {
+  color: var(--color-red-500) !important;
+  background-color: rgba(255,255,255,0.2) !important;
   animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.liked .icon {
-  fill: currentColor;
-}
-
 .actionText {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-base-white);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -138,15 +127,19 @@
   transform: translate(-50%, -50%);
   width: 72px;
   height: 72px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: var(--color-base-overlay-black);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: var(--color-base-white);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+.playIcon {
+  margin-left: 6px;
 }
 
 .playPauseIndicator.show {

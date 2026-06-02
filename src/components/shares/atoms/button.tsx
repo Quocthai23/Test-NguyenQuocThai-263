@@ -40,6 +40,7 @@ const appButtonVariants = cva(baseClasses, {
       'white-contained': 'bg-background !text-neutral-900 border-0 dark:!text-neutral-50',
       'white-outline':
         'bg-background !text-neutral-900 border-1 border-neutral-200 dark:!text-neutral-50 dark:border-neutral-800',
+      'white-ghost': 'bg-transparent !text-white border-0 hover:bg-white/20',
     },
   },
   defaultVariants: {
@@ -79,6 +80,7 @@ const webButtonVariants = cva(baseClasses, {
       'white-contained': 'bg-background text-neutral-900 border-0 dark:text-neutral-50',
       'white-outline':
         'bg-background text-neutral-900 border-1 border-neutral-200 dark:text-neutral-50 dark:border-neutral-800',
+      'white-ghost': 'bg-transparent text-white border-0 hover:bg-white/20',
     },
   },
   defaultVariants: {

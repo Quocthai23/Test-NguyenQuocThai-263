@@ -1,8 +1,8 @@
 .sidebar {
   display: flex;
-  background-color: var(--background, #000);
-  color: var(--foreground, #fff);
-  border-top: 1px solid #333;
+  background-color: var(--app-bg, var(--color-neutral-00));
+  color: var(--app-text, var(--color-neutral-900));
+  border-top: 1px solid var(--app-border, var(--color-neutral-200));
   z-index: 50;
   width: 100%;
 }
@@ -12,36 +12,37 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  padding: 12px 0;
+  padding: var(--spacing-md) 0;
 }
 
 .navItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  color: #ccc;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--spacing-base) !important;
+  color: var(--text-neutral-secondary, var(--color-neutral-600)) !important;
   text-decoration: none;
-  font-size: 12px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
+  font-size: var(--font-size-xs) !important;
+  height: auto !important;
+  padding: var(--spacing-sm) !important;
+  background: transparent !important;
 }
 
 .navItem:hover {
-  color: #fff;
+  color: var(--text-neutral-primary, var(--color-neutral-900)) !important;
+  background: var(--app-surface-muted, var(--color-neutral-100)) !important;
 }
 
 .icon {
   width: 24px;
   height: 24px;
-  fill: currentColor;
+  stroke-width: 2px;
 }
 
 .active {
-  color: #fff;
-  font-weight: bold;
+  color: var(--text-neutral-primary, var(--color-neutral-900)) !important;
+  font-weight: var(--font-weight-bold) !important;
 }
 
 /* PC Layout */
@@ -50,23 +51,24 @@
     width: 240px;
     height: 100vh;
     border-top: none;
-    border-right: 1px solid #333;
+    border-right: 1px solid var(--app-border, var(--color-neutral-200));
     flex-direction: column;
   }
 
   .nav {
     flex-direction: column;
     justify-content: flex-start;
-    padding: 24px 0;
-    gap: 16px;
+    padding: var(--spacing-xl) var(--spacing-md);
+    gap: var(--spacing-md);
   }
 
   .navItem {
-    flex-direction: row;
+    flex-direction: row !important;
     width: 100%;
-    padding: 12px 24px;
-    justify-content: flex-start;
-    font-size: 18px;
-    gap: 16px;
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    justify-content: flex-start !important;
+    font-size: var(--typography-headings-h3-fontSize) !important;
+    gap: var(--spacing-xl) !important;
   }
 }
+
