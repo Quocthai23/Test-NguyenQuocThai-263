@@ -29,6 +29,14 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Video Play/Pause Logic on Scroll
+
+Logic tự động Play/Pause video khi người dùng cuộn trang được xử lý thông qua **Intersection Observer API** (trong `src/components/video/VideoFeed.tsx`):
+1. **IntersectionObserver**: Được sử dụng để theo dõi vị trí của các thẻ chứa video trong danh sách (feed).
+2. **Ngưỡng hiển thị (Threshold)**: Được cấu hình với `threshold: 0.6`, nghĩa là khi một video chiếm từ 60% màn hình trở lên, nó sẽ được xem là video đang focus (Active).
+3. **Cập nhật State**: Video thỏa điều kiện sẽ được gán ID làm `activeVideoId`.
+4. **Điều khiển Player**: Trạng thái `isActive` được truyền xuống component `VideoPlayer`. Nếu `isActive` là `true` (video đang hiển thị), video sẽ tự động phát (Play), ngược lại nếu bị cuộn đi, video sẽ tự động tạm dừng (Pause).
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

@@ -3,13 +3,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Compass, User, Radio, PlusSquare, Moon, Sun } from 'lucide-react';
+import { Home, Compass, User, Radio, PlusSquare, Moon, Sun, Languages, Check } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { Button } from '../shares/atoms/button';
 import { Switch } from '../shares/atoms/switch';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogClose } from '../shares/atoms/dialog';
 import { useTheme } from 'next-themes';
+import { useLanguageStore } from '../../lib/store/useLanguageStore';
+import { LANGUAGES } from '../../lib/i18n/translations';
 
 export default function Sidebar() {
   const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguageStore();
   const pathname = usePathname();
   const [mounted, setMounted] = React.useState(false);
 
@@ -18,12 +23,12 @@ export default function Sidebar() {
   }, []);
 
   const menuItems = [
-    { href: '/', label: 'Trang chủ', icon: Home },
-    { href: '/explore', label: 'Khám phá', icon: Compass },
-    { href: '/following', label: 'Đã follow', icon: User },
-    { href: '/live', label: 'LIVE', icon: Radio },
-    { href: '/upload', label: 'Tải lên', icon: PlusSquare },
-    { href: '/profile', label: 'Hồ sơ', icon: User },
+    { href: '/', label: t('sidebar.home'), icon: Home },
+    { href: '/explore', label: t('sidebar.explore'), icon: Compass },
+    { href: '/following', label: t('sidebar.following'), icon: User },
+    { href: '/live', label: t('sidebar.live'), icon: Radio },
+    { href: '/upload', label: t('sidebar.upload'), icon: PlusSquare },
+    { href: '/profile', label: t('sidebar.profile'), icon: User },
   ];
 
   return (
@@ -55,16 +60,48 @@ export default function Sidebar() {
       </div>
 
       <div className="hidden md:flex md:flex-col md:p-xl md:gap-lg">
+        <Dialog>
+          <DialogTrigger asChild>
+            <div className="flex items-center gap-md text-neutral-secondary cursor-pointer hover:text-neutral-primary transition-colors">
+              <Languages size={20} />
+              <span className="text-sm font-semibold">{mounted ? LANGUAGES.find(l => l.code === language)?.name : 'Language'}</span>
+            </div>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[360px] !p-0 overflow-hidden">
+            <DialogHeader className="p-6 pb-2">
+              <DialogTitle className="text-xl">Ngôn ngữ (Language)</DialogTitle>
+            </DialogHeader>
+            <div className="flex flex-col py-2 max-h-[60vh] overflow-y-auto no-scrollbar">
+              {LANGUAGES.map((lang) => (
+                <DialogClose asChild key={lang.code}>
+                  <div
+                    className={cn(
+                      "px-6 py-3 cursor-pointer text-sm font-medium transition-colors flex items-center justify-between",
+                      language === lang.code 
+                        ? "text-blue-500" 
+                        : "text-app-text hover:bg-app-surface-muted"
+                    )}
+                    onClick={() => setLanguage(lang.code)}
+                  >
+                    <span>{lang.name}</span>
+                    {language === lang.code && <Check size={18} className="text-blue-500" />}
+                  </div>
+                </DialogClose>
+              ))}
+            </div>
+          </DialogContent>
+        </Dialog>
+
         <div className="flex items-center gap-md text-neutral-secondary">
-          <Sun size={20} className="text-neutral-secondary" />
+          <Sun size={20} className={`transition-colors ${mounted && theme !== 'dark' ? 'text-app-text' : ''}`} />
           <Switch
             className="bg-neutral-300"
             checked={mounted ? theme === 'dark' : false}
             onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
           />
-          <Moon size={20} className="text-neutral-secondary" />
+          <Moon size={20} className={`transition-colors ${mounted && theme === 'dark' ? 'text-app-text' : ''}`} />
         </div>
-        <p className="text-xs text-neutral-tertiary m-0">© 2026 TikTok Clone</p>
+        <p className="text-xs text-neutral-tertiary m-0">{t('sidebar.copyright')}</p>
       </div>
     </aside>
   );
