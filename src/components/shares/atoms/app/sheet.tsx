@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { Slot } from '@radix-ui/react-slot';
-import { X } from '@untitledui/icons';
-import { useTranslation } from 'react-i18next';
+import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type SheetContextValue = {
@@ -103,6 +102,7 @@ type SheetContentProps = React.ComponentPropsWithoutRef<'div'> & {
   forceMount?: boolean;
   onOpenAutoFocus?: (event: { preventDefault: () => void }) => void;
   onInteractOutside?: (event: InteractOutsideEvent) => void;
+  containerRef?: React.RefObject<HTMLElement | null> | HTMLElement | null;
 };
 
 function SheetContent({
@@ -116,11 +116,11 @@ function SheetContent({
   forceMount = false,
   onOpenAutoFocus,
   onInteractOutside,
+  containerRef,
   style: styleProp,
   onTransitionEnd: onTransitionEndProp,
   ...props
 }: SheetContentProps) {
-  const { t } = useTranslation();
   const { open, onOpenChange, modal } = useSheetContext();
   const [inDom, setInDom] = React.useState(() => open || forceMount);
   const [entered, setEntered] = React.useState(false);
@@ -207,18 +207,23 @@ function SheetContent({
   const isLeft = side === 'left';
   const hasAriaTitle = title != null && title !== '';
 
-  const panelBase =
-    'bg-background z-10 flex max-h-dvh flex-col gap-4 outline-none focus:outline-none focus-visible:ring-0 motion-reduce:transition-none max-w-3xl mx-auto';
+  const isAbsolute = !!containerRef;
+  const posClass = isAbsolute ? 'absolute' : 'fixed';
+
+  const panelBase = cn(
+    'bg-background z-10 flex max-h-dvh flex-col gap-4 outline-none focus:outline-none focus-visible:ring-0 motion-reduce:transition-none mx-auto w-full',
+    isAbsolute ? 'max-w-full' : 'max-w-3xl'
+  );
 
   const panelPosition = isCenter
-    ? 'border-border fixed left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border p-0 shadow-lg transition-[opacity,transform] ease-out dark:shadow-[0_14px_40px_-16px_rgba(0,0,0,0.45)]'
+    ? `border-border ${posClass} left-1/2 top-1/2 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-2xl border p-0 shadow-lg transition-[opacity,transform] ease-out dark:shadow-[0_14px_40px_-16px_rgba(0,0,0,0.45)]`
     : isTop
-      ? 'border-border fixed inset-x-0 top-0 rounded-b-xl border-b shadow-[0_8px_32px_-12px_rgba(0,0,0,0.12)] transition-transform ease-out dark:shadow-[0_10px_36px_-14px_rgba(0,0,0,0.45)]'
+      ? `border-border ${posClass} inset-x-0 top-0 rounded-b-xl border-b shadow-[0_8px_32px_-12px_rgba(0,0,0,0.12)] transition-transform ease-out dark:shadow-[0_10px_36px_-14px_rgba(0,0,0,0.45)]`
       : isBottom
-        ? 'border-border fixed inset-x-0 bottom-0 rounded-t border-t shadow-[0_-8px_32px_-12px_rgba(0,0,0,0.12)] transition-transform ease-out dark:shadow-[0_-10px_36px_-14px_rgba(0,0,0,0.45)]'
+        ? `border-border ${posClass} inset-x-0 bottom-0 rounded-t border-t shadow-[0_-8px_32px_-12px_rgba(0,0,0,0.12)] transition-transform ease-out dark:shadow-[0_-10px_36px_-14px_rgba(0,0,0,0.45)]`
         : isLeft
-          ? 'border-border fixed inset-y-0 left-0 h-full w-3/4 border-r transition-transform ease-out sm:max-w-sm'
-          : 'border-border fixed inset-y-0 right-0 h-full w-3/4 border-l transition-transform ease-out sm:max-w-sm';
+          ? `border-border ${posClass} inset-y-0 left-0 h-full w-3/4 border-r transition-transform ease-out sm:max-w-sm`
+          : `border-border ${posClass} inset-y-0 right-0 h-full w-3/4 border-l transition-transform ease-out sm:max-w-sm`;
 
   const panelVisible = isCenter
     ? open && entered
@@ -235,12 +240,13 @@ function SheetContent({
             : 'pointer-events-none translate-x-full';
 
   const portal = (
-    <div className="pointer-events-none fixed inset-0 z-50" data-sheet-side={side}>
+    <div className={cn("pointer-events-none z-50", isAbsolute ? "absolute inset-0" : "fixed inset-0")} data-sheet-side={side}>
       {withOverlay ? (
         <div
           role="presentation"
           className={cn(
-            'fixed inset-0 z-0 mx-auto max-w-3xl bg-black/50 transition-opacity ease-out motion-reduce:transition-none',
+            'z-0 bg-black/50 transition-opacity ease-out motion-reduce:transition-none',
+            isAbsolute ? 'absolute inset-0' : 'fixed inset-0 mx-auto max-w-3xl',
             open && entered ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
             overlayClassName,
           )}
@@ -277,7 +283,7 @@ function SheetContent({
         {showCloseButton ? (
           <button
             type="button"
-            aria-label={t('common.close')}
+            aria-label="Đóng"
             className="text-muted-foreground ring-offset-background focus:ring-ring hover:bg-muted hover:text-foreground absolute top-4 right-4 rounded-xs p-0.5 opacity-70 transition-[opacity,background-color,color] hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden"
             onClick={close}
           >
@@ -288,7 +294,9 @@ function SheetContent({
     </div>
   );
 
-  return createPortal(portal, document.body);
+  const containerElement = containerRef && ('current' in containerRef ? containerRef.current : containerRef as HTMLElement);
+
+  return containerElement ? createPortal(portal, containerElement) : createPortal(portal, document.body);
 }
 
 function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {

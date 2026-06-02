@@ -3,9 +3,8 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { Slot } from '@radix-ui/react-slot';
-import { X } from '@untitledui/icons';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/shared/atoms/button';
+import { X } from 'lucide-react';
+import { Button } from '../button';
 import { cn } from '@/lib/utils';
 
 type SheetContextValue = {
@@ -121,7 +120,6 @@ function SheetContent({
   onTransitionEnd: onTransitionEndProp,
   ...props
 }: SheetContentProps) {
-  const { t } = useTranslation();
   const { open, onOpenChange, modal } = useSheetContext();
   const [inDom, setInDom] = React.useState(() => open || forceMount);
   const [entered, setEntered] = React.useState(false);
@@ -279,7 +277,7 @@ function SheetContent({
           <Button
             type="button"
             variant="white-contained"
-            aria-label={t('common.close')}
+            aria-label="Đóng"
             className="ring-offset-background absolute top-4 right-4 cursor-pointer rounded-xs border border-none p-0.5 opacity-70 transition-[opacity,background-color,color] hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2"
             onClick={close}
           >

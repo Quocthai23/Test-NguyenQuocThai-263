@@ -1,17 +1,16 @@
 'use client';
 
-import { InfoCircle, AlertTriangle, XCircle, Loading01, CheckCircle } from '@untitledui/icons';
+import { Info, AlertTriangle, XCircle, Loader2, CheckCircle2 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Toaster as Sonner, toast, type ToasterProps } from 'sonner';
 import type { CSSProperties } from 'react';
-import { createThemeColors } from '@/theme/colors';
 
-const Toaster = ({ ...props }: ToasterProps) => {
+const Toaster = ({ position = 'top-center', ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme();
-  const colors = createThemeColors();
 
   return (
     <Sonner
+      position={position}
       theme={theme as ToasterProps['theme']}
       className="toaster group"
       toastOptions={{
@@ -23,29 +22,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
         },
       }}
       icons={{
-        success: (
-          <CheckCircle color="black " fill={colors.green500} size={20} className="text-green-500" />
-        ),
-        info: (
-          <InfoCircle color="black" fill={colors.blue500} size={20} className="text-blue-500" />
-        ),
-        warning: (
-          <AlertTriangle
-            color="black"
-            fill={colors.yellow500}
-            size={20}
-            className="text-yellow-500"
-          />
-        ),
-        error: <XCircle color="black" fill={colors.red500} size={20} className="text-red-500" />,
-        loading: (
-          <Loading01
-            color="black"
-            fill={colors.neutral500}
-            size={20}
-            className="text-muted-foreground animate-spin"
-          />
-        ),
+        success: <CheckCircle2 size={20} className="text-green-500" />,
+        info: <Info size={20} className="text-blue-500" />,
+        warning: <AlertTriangle size={20} className="text-yellow-500" />,
+        error: <XCircle size={20} className="text-red-500" />,
+        loading: <Loader2 size={20} className="text-muted-foreground animate-spin" />,
       }}
       style={
         {

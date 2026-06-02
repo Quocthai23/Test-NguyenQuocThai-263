@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { useExperience } from '@/lib/experience/useExperience';
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded transition-all outline-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 disabled:opacity-50 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded transition-all outline-none [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-6 shrink-0 [&_svg]:shrink-0 disabled:opacity-50 disabled:cursor-not-allowed";
 
 const appButtonVariants = cva(baseClasses, {
   variants: {

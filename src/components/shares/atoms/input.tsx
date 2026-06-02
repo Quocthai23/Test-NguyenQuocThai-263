@@ -14,7 +14,7 @@ function Input({ className, type, rightAccessory, ...props }: InputProps) {
         data-slot="input"
         className={cn(
           'file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground h-9 w-full min-w-0 rounded border border-neutral-200 bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#0c130f] dark:text-neutral-50 dark:placeholder-neutral-500',
-          'focus-visible:border-primary-500 focus-visible:ring-primary-50 focus-visible:ring-[3px] focus-visible:ring-inset',
+          'focus-visible:border-primary-500 focus-visible:ring-primary-50 focus-visible:ring-[2px] focus-visible:ring-inset',
           'aria-invalid:border-red-500 aria-invalid:text-red-500 aria-invalid:ring-red-50 dark:aria-invalid:ring-red-50',
           className,
         )}

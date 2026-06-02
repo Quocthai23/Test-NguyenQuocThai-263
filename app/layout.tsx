@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/src/components/theme/ThemeProvider";
+import { WebToaster } from "@/src/components/shares/atoms/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body style={{ margin: 0, padding: 0, overflow: 'hidden', height: '100vh', width: '100vw' }}>
+      <body className="m-0 p-0 overflow-hidden h-screen w-screen bg-app-bg text-app-text">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
+          <WebToaster />
         </ThemeProvider>
       </body>
     </html>

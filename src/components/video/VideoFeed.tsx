@@ -3,11 +3,30 @@
 import React, { useEffect, useRef, useState } from 'react';
 import VideoPlayer from './VideoPlayer';
 import { mockVideos } from '../../data/mockVideos';
-import styles from './VideoFeed.module.css';
 
 export default function VideoFeed() {
-  const [activeVideoId, setActiveVideoId] = useState<string>(mockVideos[0]?.id);
+  const [activeVideoId, setActiveVideoId] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('lastWatchedVideoId') || mockVideos[0]?.id;
+    }
+    return mockVideos[0]?.id;
+  });
+  
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Scroll to the active video on initial load if it was saved
+    const savedVideoId = localStorage.getItem('lastWatchedVideoId');
+    if (savedVideoId && containerRef.current) {
+      setTimeout(() => {
+        const el = document.getElementById(savedVideoId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
@@ -15,6 +34,7 @@ export default function VideoFeed() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveVideoId(entry.target.id);
+            localStorage.setItem('lastWatchedVideoId', entry.target.id);
           }
         });
       },
@@ -34,9 +54,9 @@ export default function VideoFeed() {
   }, []);
 
   return (
-    <div className={styles.feed}>
+    <div ref={containerRef} className="w-full h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar">
       {mockVideos.map((video) => (
-        <div key={video.id} id={video.id} data-video-item style={{ height: '100%' }}>
+        <div key={video.id} id={video.id} data-video-item className="h-full">
           <VideoPlayer 
             video={video} 
             isActive={activeVideoId === video.id} 
