@@ -1,17 +1,17 @@
 /* Spacing Tokens */
 :root {
   --spacing-base: 4px;
-  --spacing-xxs: scale-1;
-  --spacing-xs: scale-2;
-  --spacing-sm: scale-3;
-  --spacing-md: scale-4;
-  --spacing-lg: scale-5;
-  --spacing-xl: scale-6;
-  --spacing-xxl: scale-8;
-  --spacing-3xl: scale-10;
-  --spacing-4xl: scale-12;
-  --spacing-5xl: scale-16;
-  --spacing-6xl: scale-20;
-  --spacing-7xl: scale-24;
-  --spacing-8xl: scale-32;
+  --spacing-xxs: calc(var(--spacing-base) * 1); /* 4px */
+  --spacing-xs: calc(var(--spacing-base) * 2);  /* 8px */
+  --spacing-sm: calc(var(--spacing-base) * 3);  /* 12px */
+  --spacing-md: calc(var(--spacing-base) * 4);  /* 16px */
+  --spacing-lg: calc(var(--spacing-base) * 5);  /* 20px */
+  --spacing-xl: calc(var(--spacing-base) * 6);  /* 24px */
+  --spacing-xxl: calc(var(--spacing-base) * 8); /* 32px */
+  --spacing-3xl: calc(var(--spacing-base) * 10); /* 40px */
+  --spacing-4xl: calc(var(--spacing-base) * 12); /* 48px */
+  --spacing-5xl: calc(var(--spacing-base) * 16); /* 64px */
+  --spacing-6xl: calc(var(--spacing-base) * 20); /* 80px */
+  --spacing-7xl: calc(var(--spacing-base) * 24); /* 96px */
+  --spacing-8xl: calc(var(--spacing-base) * 32); /* 128px */
 }
