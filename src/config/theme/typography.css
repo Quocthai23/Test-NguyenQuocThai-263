@@ -1,0 +1,87 @@
+/* Typography Tokens */
+:root {
+  /* Font Weights */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Font Sizes */
+  --font-size-2xs: 10px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 15px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 40px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 56px;
+  --font-size-7xl: 64px;
+  --font-size-8xl: 72px;
+  --font-size-9xl: 80px;
+  --font-size-10xl: 96px;
+
+  /* Line Heights */
+  --line-height-2xs: 14px;
+  --line-height-xs: 16px;
+  --line-height-sm: 20px;
+  --line-height-md: 24px;
+  --line-height-lg: 28px;
+  --line-height-xl: 32px;
+  --line-height-2xl: 36px;
+  --line-height-3xl: 40px;
+  --line-height-4xl: 44px;
+  --line-height-5xl: 48px;
+  --line-height-6xl: 56px;
+  --line-height-7xl: 64px;
+  --line-height-8xl: 72px;
+  --line-height-9xl: 80px;
+  --line-height-10xl: 88px;
+
+  /* Composite Typography Settings */
+  --typography-display-3xl-fontSize: 32px;
+  --typography-display-3xl-lineHeight: 40px;
+  --typography-display-3xl-fontWeight: bold;
+  --typography-display-2xl-fontSize: 24px;
+  --typography-display-2xl-lineHeight: 44px;
+  --typography-display-2xl-fontWeight: bold;
+  --typography-display-xl-fontSize: 20px;
+  --typography-display-xl-lineHeight: 40px;
+  --typography-display-xl-fontWeight: bold;
+  --typography-display-lg-fontSize: 18px;
+  --typography-display-lg-lineHeight: 36px;
+  --typography-display-lg-fontWeight: semibold;
+  --typography-display-sm-fontSize: 14px;
+  --typography-display-sm-lineHeight: 40px;
+  --typography-display-sm-fontWeight: semibold;
+  --typography-headings-h1-fontSize: 24px;
+  --typography-headings-h1-lineHeight: 36px;
+  --typography-headings-h2-fontSize: 20px;
+  --typography-headings-h2-lineHeight: 32px;
+  --typography-headings-h3-fontSize: 18px;
+  --typography-headings-h3-lineHeight: 28px;
+  --typography-headings-h4-fontSize: 16px;
+  --typography-headings-h4-lineHeight: 24px;
+  --typography-body-large-fontSize: 15px;
+  --typography-body-large-lineHeight: 24px;
+  --typography-body-medium-fontSize: 15px;
+  --typography-body-medium-lineHeight: 24px;
+  --typography-body-small-fontSize: 14px;
+  --typography-body-small-lineHeight: 20px;
+  --typography-button-large-fontSize: 15px;
+  --typography-button-large-lineHeight: 24px;
+  --typography-button-medium-fontSize: 16px;
+  --typography-button-medium-lineHeight: 24px;
+  --typography-button-small-fontSize: 14px;
+  --typography-button-small-lineHeight: 20px;
+  --typography-caption-fontSize: 12px;
+  --typography-caption-lineHeight: 16px;
+}

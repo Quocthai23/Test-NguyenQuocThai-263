@@ -1,0 +1,17 @@
+/* Spacing Tokens */
+:root {
+  --spacing-base: 4px;
+  --spacing-xxs: scale-1;
+  --spacing-xs: scale-2;
+  --spacing-sm: scale-3;
+  --spacing-md: scale-4;
+  --spacing-lg: scale-5;
+  --spacing-xl: scale-6;
+  --spacing-xxl: scale-8;
+  --spacing-3xl: scale-10;
+  --spacing-4xl: scale-12;
+  --spacing-5xl: scale-16;
+  --spacing-6xl: scale-20;
+  --spacing-7xl: scale-24;
+  --spacing-8xl: scale-32;
+}

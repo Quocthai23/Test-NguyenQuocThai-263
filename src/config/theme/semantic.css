@@ -1,0 +1,99 @@
+/* Semantic Tokens - Light Mode (Default) */
+:root {
+  --color-app-bg: var(--color-neutral-00);
+  --color-app-surface: var(--color-neutral-00);
+  --color-app-surface-muted: var(--color-neutral-100);
+  --color-app-text: var(--color-text-neutral-primary);
+  --color-app-text-muted: var(--color-text-neutral-secondary);
+  --color-app-text-tertiary: var(--color-text-neutral-tertiary);
+  --color-app-border: var(--color-neutral-200);
+  --color-app-input: var(--color-neutral-200);
+  --color-app-ring: var(--color-primary-300);
+  --color-text-brand-primary: var(--color-primary-500);
+  --color-text-brand-secondary: var(--color-primary-400);
+  --color-text-brand-disabled: var(--color-primary-200);
+  --color-text-neutral-primary: var(--color-neutral-900);
+  --color-text-neutral-secondary: var(--color-neutral-600);
+  --color-text-neutral-disabled: var(--color-neutral-400);
+  --color-text-neutral-tertiary: var(--color-neutral-400);
+  --color-text-neutral-inverse: var(--color-white);
+  --color-text-success-default: var(--color-green-500);
+  --color-text-success-secondary: var(--color-green-400);
+  --color-text-success-disabled: var(--color-green-200);
+  --color-text-information-link: var(--color-blue-500);
+  --color-text-information-link-hover: var(--color-blue-400);
+  --color-text-error-default: var(--color-red-500);
+  --color-text-error-secondary: var(--color-red-400);
+  --color-text-error-disabled: var(--color-red-200);
+  --color-text-warning-default: var(--color-yellow-500);
+  --color-text-warning-secondary: var(--color-yellow-400);
+  --color-text-warning-disabled: var(--color-yellow-200);
+  --color-surface-bg: #f9fbfa;
+  --color-surface-default: #f3f7f4;
+  --color-surface-subtle: #262626;
+  --color-surface-secondary: #e1ece5;
+  --color-surface-elevated: #d8e8de;
+  --color-surface-brand-default: var(--color-primary-500);
+  --color-surface-brand-hover: var(--color-primary-700);
+  --color-surface-brand-secondary-hover: rgba(0, 111, 55, 0.15);
+  --color-surface-brand-disabled: var(--color-primary-200);
+  --color-surface-brand-focus: var(--color-primary-300);
+}
+
+/* Semantic Tokens - Dark Mode (System Preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-app-bg: var(--color-surface-bg);
+    --color-app-surface: var(--color-surface-default);
+    --color-app-surface-muted: var(--color-surface-subtle);
+    --color-app-text: var(--color-text-neutral-primary);
+    --color-app-text-muted: var(--color-text-neutral-secondary);
+    --color-app-text-tertiary: var(--color-text-neutral-tertiary);
+    --color-app-border: var(--color-border-subtle);
+    --color-app-input: var(--color-border-subtle);
+    --color-app-ring: var(--color-border-focus);
+    --color-text-brand-primary: var(--color-primary-500);
+    --color-text-brand-secondary: var(--color-primary-100);
+    --color-text-brand-disabled: var(--color-primary-800);
+    --color-text-neutral-primary: var(--color-neutral-50);
+    --color-text-neutral-secondary: var(--color-neutral-300);
+    --color-text-neutral-disabled: var(--color-neutral-800);
+    --color-text-neutral-tertiary: var(--color-neutral-600);
+    --color-text-neutral-inverse: var(--color-neutral-900);
+    --color-surface-bg: #060b09;
+    --color-surface-default: #0c130f;
+    --color-surface-subtle: #262626;
+    --color-surface-secondary: #1d2621;
+    --color-surface-elevated: #232c26;
+    --color-surface-brand-primary: var(--color-primary-500);
+    --color-surface-brand-secondary: var(--color-primary-900);
+  }
+}
+
+/* Semantic Tokens - Dark Mode (CSS Selectors) */
+html.dark, body.dark, [data-theme="dark"] {
+  --color-app-bg: var(--color-surface-bg);
+  --color-app-surface: var(--color-surface-default);
+  --color-app-surface-muted: var(--color-surface-subtle);
+  --color-app-text: var(--color-text-neutral-primary);
+  --color-app-text-muted: var(--color-text-neutral-secondary);
+  --color-app-text-tertiary: var(--color-text-neutral-tertiary);
+  --color-app-border: var(--color-border-subtle);
+  --color-app-input: var(--color-border-subtle);
+  --color-app-ring: var(--color-border-focus);
+  --color-text-brand-primary: var(--color-primary-500);
+  --color-text-brand-secondary: var(--color-primary-100);
+  --color-text-brand-disabled: var(--color-primary-800);
+  --color-text-neutral-primary: var(--color-neutral-50);
+  --color-text-neutral-secondary: var(--color-neutral-300);
+  --color-text-neutral-disabled: var(--color-neutral-800);
+  --color-text-neutral-tertiary: var(--color-neutral-600);
+  --color-text-neutral-inverse: var(--color-neutral-900);
+  --color-surface-bg: #060b09;
+  --color-surface-default: #0c130f;
+  --color-surface-subtle: #262626;
+  --color-surface-secondary: #1d2621;
+  --color-surface-elevated: #232c26;
+  --color-surface-brand-primary: var(--color-primary-500);
+  --color-surface-brand-secondary: var(--color-primary-900);
+}
